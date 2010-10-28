@@ -2,10 +2,9 @@
 
 -include("reply.hrl").
 
--export([start/0, start/1]).
+-export([start/1]).
 -export([init/1]).
 
--define(SERVER, "192.168.93.198").
 -define(SEND_INTERVAL, 5000).
 -define(DM_LEFT_PLAYER_COL, {64, 192}).
 -define(DM_LEFT_FRAGS_COL, {396, 192}).
@@ -27,9 +26,6 @@
 	  left_team_score,
 	  right_team_score
 	 }).
-
-start() ->
-    start(?SERVER).
 
 start(Server) ->
     spawn(?MODULE, init, [Server]).
